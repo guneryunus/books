@@ -25,21 +25,25 @@ class BookList extends React.Component{
                 {contextTheme=>{
                     return(
                         <BookContext.Consumer>
-                            {value1=>{
-                                // const{ books} =  value1
-                                const {isDarkTheme, dark ,light} =contextTheme;
+                            {contextBook=>{
+                               // const{ books} =  contextBook
+                                const {changeTheme,isDarkTheme, dark ,light} =contextTheme;
                                 const theme=isDarkTheme? dark :light;
                         
                             return(
-                                <section className="page-section" style={{background:theme.bg}} id="portfolio"> 
-                                <div className="container">
+                                <section className="page-section"  id="portfolio" style={{background:theme.bg,color:theme.txt}}> 
+                                <div className="container" >
                                     <div className="text-center">
-                                        <h2 className="section-heading text-uppercase" style={{color:theme.txt}}>Bookfolio</h2>
-                                        <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet.</h3>
+                                        <h2 className="section-heading text-uppercase" >Bookfolio</h2>
+                                        <h3 className="section-subheading text-muted" >Lorem ipsum dolor sit amet.</h3>
+                                        <button type="button" className="btn btn-warning mb-2" onClick={changeTheme}>Change Button</button>
                                     </div> 
+                                    <div>
+                                        
+                                    </div>
                                     <div className="row">
                                         {/* {bookList} */}
-                                        {value1.books.map((book,i)=>{
+                                        {contextBook.books.map((book,i)=>{
                                              return( <Book
                                                  book={book}
                                                  key={i}
